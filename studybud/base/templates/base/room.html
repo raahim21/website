@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .room-container{
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+    }
+</style>
+
+
+<div class="room-container">
+    
+<div class="comment-wrapper">
+    <p style="color: white;">{{room.name}}</p>
+        {% if room.description %}
+        <p style="color: white;">{{room.description}}</p>
+        {% else %}
+        <p>no room description</p>
+        {% endif %}
+    <h3 style="color: white;">Comments</h3>
+    <hr>
+    {% for message in room_messages %}
+    <div class="w" style="display: flex; flex-direction: column; height: 100px; justify-content: center;">
+        <div>
+            {{message.user}} {{message.created|timesince}}
+        </div>
+        <div>
+            {{message.body}}
+        </div>
+    </div>
+    {% if request.user == message.user %}
+    <form action="" method="post">
+        <a href="">edit</a>
+        <a href="{% url 'delete-message' message.id %}">Delete comment</a>
+        <!--  url 'delete-message'  -->
+    </form>
+    {% endif %}
+    <hr>
+    {% endfor %}
+</div>
+<div style="display: flex; flex-direction: column;">
+   <h1> Participants</h1>
+   {% for participant in participants %}
+   <div>
+    {{participant}}
+   </div>
+   {% endfor %}
+</div> 
+</div>
+{% if request.user.is_authenticated %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="body" placeholder="add a comment">
+</form>
+
+{% else %}
+<a href="{% url 'register' %}"><button>Sign up to add a comment</button></a>
+{% endif %}
+
+
+
+
+
+{% endblock content %}

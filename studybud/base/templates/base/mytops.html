@@ -1,0 +1,25 @@
+<style>
+    li{
+        list-style-type: none
+    }
+</style>
+<div class="topics" style="    margin: 10px 0 0 75px;">
+    <div class="topics__header">
+      <h1 class="white">Browse Topics</h1>
+        </div>
+    <ul class="topics__list">
+        <ul>
+      {% for topic in topics %}
+      <div>
+        <a href="{% url 'home' %}?q={{topic.name}}"><li>{{topic.name}}</li></a>
+      </div>
+    </ul>
+      {% endfor %}
+    <a class="btn btn--link white" href="topics.html">
+      More
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <title>chevron-down</title>
+        <path d="M16 21l-13-13h-3l16 16 16-16h-3l-13 13z"></path>
+      </svg>
+    </a>
+  </div>

@@ -1,0 +1,45 @@
+.first-page{
+    background-color: hsl(240, 100%, 5%);
+    height: 96.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.holder{
+    background-color: rgb(158, 142, 142);
+    display: grid;
+    width: 450px;
+    border: 1px solid black;
+    height: 350px;
+    border-radius: 7px;
+}
+.row1{
+    letter-spacing: 3px;
+    width: 50%;
+    margin: 20px 0 0 45px
+}
+
+/* 
+.row{
+    margin: 40px 0 20px 120px
+} */
+input{
+    width: 350px;
+    height: 40px;
+}
+.inp{
+    width: 200px;
+    height: 30px;
+    border: 1px solid green;
+    margin: 20px 0 20px 120px
+
+}
+
+.row-q{
+    margin: 20px 0 20px 120px
+}

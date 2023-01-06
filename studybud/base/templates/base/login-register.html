@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+{% if page == 'login' %}
+
+<link rel="stylesheet" href="{% static 'style/fors.css' %}">
+<div class="first-page">
+    <div class="holder">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row1">
+            <label for="username">Username:</label>
+            <input type="text" placeholder="enter username" id="username" name="name">
+        </div>
+              <div class="row1">  
+            <label for="pass">Password:</label>
+                <input type="password" placeholder="enter password" id="pass" name="password">
+            </div>
+            <div class="row"><input class="inp" type="submit"></div>    
+        </form>
+        <div class="row-q">
+            <h3>Haven't signed up?</h3>
+        <a href="{% url 'register' %}">Sign up</a>
+        </div>
+    </div>
+</div>
+{% else %}
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+    </form>
+    <div class="conc">
+        <p>Already Signed up?</p>
+    <a href="{% url 'login' %}">Login</a>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+nav{
+    background-color: aqua;
+}
+
+nav{
+    height: 60px;
+    align-items: center;
+    display: flex;
+    justify-content: end;
+    background-color: aqua;
+}
+
+ul{
+    display: flex;
+    justify-content: end;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+    padding-right: 20px;
+}

@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .profile-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+{{user.username}}
+<div class="profile-container">
+    <div> 
+        {% include 'base/mytops.html' %}
+    </div>
+
+    <div>
+        <div class="profile">
+            <div class="profile__avatar">
+              <div class="avatar avatar--large active">
+                <img src="https://studybud.s3.amazonaws.com/dennis.jpg">
+              </div>
+            </div>
+            <div class="profile__info">
+              <h3 style="color: white;">{{user.username}}</h3>
+              <p style="color: white;">@{{user.username}} <span style="color: #b2bdbd;; font-size: 14px;"><span id="follow-count">314</span> Followers</span></p>
+              
+              
+              
+    
+              
+              <a id="followbtn" class="btn btn--main btn--pill white" data-otheruser="2be85331-5537-41b0-b9fa-7a00f684e120" data-action="follow">Follow</a>
+              
+    
+              
+         
+            </div>
+            <div class="profile__about white">
+              <h3>About</h3>
+              <p>
+                I was a lead developer in a past life, now I enjoy teaching others how to build cool applications.
+              </p>
+            </div>
+          </div>
+        {% include 'base/feed.html' %}
+    </div>
+
+    <div> 
+        {% include 'base/activity_component.html' %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block css %}
+
+{% endblock css %}
